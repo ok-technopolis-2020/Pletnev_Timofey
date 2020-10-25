@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>todo-app</title>
+	<link rel="stylesheet" type="text/css" href="styles.css" media="screen"/>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div class="todo-app">
@@ -12,7 +14,8 @@
 		<main class="todo-app__frame">
 			<section class="todo-app__main-controls">
 				<div class="main-controls__select-all">
-					<button class="main-controls__select-all-button">Select all tasks</button>
+					<button class="main-controls__select-all-button">
+					</button>
 				</div>
 				<div class="main-controls__create-new">
 					<input
@@ -32,9 +35,10 @@
 									type="checkbox"
 									class="task-item__status"
 									aria-label="Not completed task: HTML"
+									id="HTML"
 							>
-							<span class="task-item__text">HTML</span>
-							<button class="task-item__delete">Delete task</button>
+							<label for="HTML" class="task-item__text">HTML</label>
+							<button class="task-item__delete"></button>
 						</div>
 						<div class="task-item__edit" hidden="hidden">
 							<input
@@ -51,9 +55,10 @@
 									type="checkbox"
 									class="task-item__status"
 									aria-label="Completed task: CSS"
+									id="CSS"
 							>
-							<span class="task-item__text">CSS</span>
-							<button class="task-item__delete">Delete task</button>
+							<label for="CSS" class="task-item__text">CSS</label>
+							<button class="task-item__delete"></button>
 						</div>
 						<div class="task-item__edit" hidden="hidden">
 							<input
@@ -70,9 +75,10 @@
 									type="checkbox"
 									class="task-item__status"
 									aria-label="Not completed task: JS"
+									id="JS"
 							>
-							<span class="task-item__text">JS</span>
-							<button class="task-item__delete">Delete task</button>
+							<label for="JS" class="task-item__text">JS</label>
+							<button class="task-item__delete"></button>
 						</div>
 						<div class="task-item__edit" hidden="hidden">
 							<input
@@ -89,9 +95,10 @@
 									type="checkbox"
 									class="task-item__status"
 									aria-label="Not completed task: JS tools"
+									id="JS tools"
 							>
-							<span class="task-item__text">JS tools</span>
-							<button class="task-item__delete">Delete task</button>
+							<label for="JS tools" class="task-item__text">JS tools</label>
+							<button class="task-item__delete"></button>
 						</div>
 						<div class="task-item__edit" hidden="hidden">
 							<input
@@ -99,6 +106,86 @@
 									class="task-item__input"
 									value="JS tools"
 									aria-label="Edit task: JS tools"
+							>
+						</div>
+					</li>
+					<li class="todo-app__task-list task-item">
+						<div class="task-item__view">
+							<input
+									type="checkbox"
+									class="task-item__status"
+									aria-label="Not completed task: JS tools"
+									id="Java"
+							>
+							<label for="Java" class="task-item__text">Java</label>
+							<button class="task-item__delete"></button>
+						</div>
+						<div class="task-item__edit" hidden="hidden">
+							<input
+									type="text"
+									class="task-item__input"
+									value="Java"
+									aria-label="Edit task: Java"
+							>
+						</div>
+					</li>
+					<li class="todo-app__task-list task-item">
+						<div class="task-item__view">
+							<input
+									type="checkbox"
+									class="task-item__status"
+									aria-label="Not completed task: Python"
+									id="Python"
+							>
+							<label for="Python" class="task-item__text">Python</label>
+							<button class="task-item__delete"></button>
+						</div>
+						<div class="task-item__edit" hidden="hidden">
+							<input
+									type="text"
+									class="task-item__input"
+									value="Python"
+									aria-label="Edit task: Python"
+							>
+						</div>
+					</li>
+					<li class="todo-app__task-list task-item">
+						<div class="task-item__view">
+							<input
+									type="checkbox"
+									class="task-item__status"
+									aria-label="Not completed task: C++"
+									id="C++"
+							>
+							<label for="C++" class="task-item__text">C++</label>
+							<button class="task-item__delete"></button>
+						</div>
+						<div class="task-item__edit" hidden="hidden">
+							<input
+									type="text"
+									class="task-item__input"
+									value="C++"
+									aria-label="Edit task: C++"
+							>
+						</div>
+					</li>
+					<li class="todo-app__task-list task-item">
+						<div class="task-item__view">
+							<input
+									type="checkbox"
+									class="task-item__status"
+									aria-label="Not completed task: ReactJS"
+									id="ReactJS"
+							>
+							<label for="ReactJS" class="task-item__text">ReactJS</label>
+							<button class="task-item__delete"></button>
+						</div>
+						<div class="task-item__edit" hidden="hidden">
+							<input
+									type="text"
+									class="task-item__input"
+									value="ReactJS"
+									aria-label="Edit task: ReactJS"
 							>
 						</div>
 					</li>
