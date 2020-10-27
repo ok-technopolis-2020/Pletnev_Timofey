@@ -89,8 +89,8 @@ ul {
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
-	padding: 0px 10px;
-	box-shadow: inset 0px -1px 0px var(--shadow-color);
+	padding-left: 10px;
+	border-bottom: solid 1px var(--shadow-color);
 	position: sticky;
   	top: 0;
   	background: var(--background-light-color);
@@ -98,7 +98,7 @@ ul {
 
 
 .todo-app__tasks {
-	min-height: calc(402px - 66px - 43px);
+	min-height: 293px;
 	height: auto;
 	display: flex;
 	flex-direction: column;
@@ -114,20 +114,22 @@ ul {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	box-shadow: inset 0px -1px 0px var(--shadow-color);
+	border-bottom: solid 1px var(--shadow-color);
 	transition: all 0.1s ease-out;
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
 
+
 .task-item__delete {
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
 	background: none;
 	background-image: url("asset/close.svg");
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: 50% 50%;
+	background-size: 75% 75%;
 	border: none;
 	display: none;
 	transition: all 0.2s ease-out;
@@ -138,14 +140,15 @@ ul {
 	display: block;
 }
 
-.task-item__delete:hover {
+.task-item__delete:hover, .task-item__delete:focus {
 	transform: scale(1.1);
 }
 
-.task-item__view:hover, .task-item__view:active, .task-item__view:focus, .task-item__status:focus, .task-item__status:active {
+.task-item__view:hover, .task-item__view:active, .task-item__view:focus, .task-item__text:focus, .task-item__status:focus, .task-item__status:active {
+	outline-width: 1px;
+	outline-color: var(--main-text-color);
 	background: var(--hover-background-color);
 }
-
 
 .todo-app__actions-bar {
 	height: 43px;
@@ -157,7 +160,7 @@ ul {
 	font-weight: 300;
 	font-size: 14px;
 	color: var(--action-bar-text-color);
-	box-shadow: inset 0px 1px 0px var(--shadow-color);
+	border-top: solid 1px var(--shadow-color);
 
 	position: sticky;
 	bottom: 0;
@@ -165,20 +168,18 @@ ul {
 }
 
 .task-item__status, .task-filter__input {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
+	position: absolute;
+	opacity: 0;
 }
 
-
 .task-item__status + .task-item__text {
-  display: inline-flex;
-  align-items: center;
-  user-select: none;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
 }
 
 .task-item__text {
-	width: calc(100% - 40px);
+	width: 512px;
 }
 
 .task-item__text:hover {
@@ -186,20 +187,19 @@ ul {
 }
 
 .task-item__status + .task-item__text::before {
-  content: '';
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  flex-grow: 0;
-  border: 1px solid #adb5bd;
-  border-radius: 1em;
-  margin-right: 0.5em;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 50% 50%;
+	content: '';
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	flex-shrink: 0;
+	flex-grow: 0;
+	border: 1px solid #adb5bd;
+	border-radius: 20px;
+	margin-right: 15px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 50% 50%;
 }
-
 
 .task-item__status:checked+.task-item__text::before {
 	border-color: var(--green-color);
@@ -221,12 +221,16 @@ ul {
 	font-family: Roboto, sans-serif;
 	font-style:	normal;
 	transition: all 0.2s ease-out;
-	border-radius: 0.4em;
+	border-radius: 8px;
 }
 
-.task-clear-completed:active, .task-clear-completed:focus, .main-controls__select-all-button:active, .main-controls__select-all-button:focus, .main-controls__create-new-input:active, .main-controls__create-new-input:focus, .task-item__delete:active, .task-item__delete:focus {
-  	outline: none;
+.task-clear-completed:active, .main-controls__select-all-button:active, .main-controls__create-new-input:active, .task-item__delete:active {
   	transition: all 0.2s ease-out;
+}
+
+.task-item__status:focus .task-item__text:focus .task-clear-completed:focus, .main-controls__select-all-button:focus, .main-controls__create-new-input:focus, .task-item__delete:focus {
+	outline-width: 1px;
+	outline-color: var(--main-text-color);
 }
 
 .task-clear-completed:hover {
@@ -246,19 +250,16 @@ ul {
   	background-position: center center;
    	background-image: url("asset/select-all.svg");
    	margin-right: 12px;
-   	border-radius: 0.6em;
+   	border-radius: 10px;
 }
 
-
-.main-controls__select-all-button:hover {
+.main-controls__select-all-button:hover, .main-controls__select-all-button:focus {
 	cursor: pointer;
 	background-color: var(--hover-background-color);
 }
 
-
 .main-controls__create-new {
 	flex: 1;
-	padding-right: 5px;
 	height: 100%;
 }
 
@@ -275,66 +276,41 @@ ul {
 	background: none;
 }
 
-::-webkit-input-placeholder { /* Chrome */
+.main-controls__create-new-input::placeholder {
    	color: var(--main-light-text-color);
    	font-style: italic;
 }
 
 
-:-ms-input-placeholder { /* IE 10+ */
-  	color: var(--main-light-text-color);
-   	font-style: italic;
-}
-
-::-moz-placeholder { /* Firefox 19+ */
-  	color: var(--main-light-text-color);
-   	font-style: italic;
- 	opacity: 1;
-}
-
-:-moz-placeholder { /* Firefox 4 - 18 */
- 	color: var(--main-light-text-color);
-   	font-style: italic;
-  	opacity: 1;
-}
-
-/* для элемента input c type="radio" */
-.task-filter__item>.task-filter__input {
+.task-filter__input {
   position: absolute;
-  z-index: -1;
   opacity: 0;
 }
 
-/* для элемента label связанного с .custom-radio */
-.task-filter__item>.task-filter__text {
+.task-filter__text {
   display: inline-flex;
   align-items: center;
   user-select: none;
-  border-radius: 0.2em;
+  border-radius: 5px;
   margin: 0 5px;
   padding: 2px;
   cursor: pointer;
   transition: all 0.2s ease-out;
 }
 
-/* стили при наведении курсора на радио */
-.task-filter__item>.task-filter__input:not(:disabled):not(:checked)+.task-filter__text:hover {
+.task-filter__input:not(:disabled):not(:checked) +.task-filter__text:hover {
   color: var(--main-text-color);
   background-color: var(--hover-background-color);
 }
 
-/* стили для радиокнопки, находящейся в фокусе */
-.task-filter__item>.task-filter__input:focus+.task-filter__text, .task-filter__item>.task-filter__input:active+.task-filter__text {
+.task-filter__input:focus + .task-filter__text, .task-filter__input:active + .task-filter__text {
   color: var(--main-text-color);
 }
 
-
-/* стили для радиокнопки, находящейся в состоянии checked */
-.task-filter__item>.task-filter__input:checked+.task-filter__text {
+.task-filter__input:checked + .task-filter__text {
   border: 1px solid #EBDFDF;
 }
 
-/* стили для радиокнопки, находящейся в состоянии disabled */
-.task-filter__item>.task-filter__input:disabled+.task-filter__text {
+.task-filter__input:disabled + .task-filter__text {
   border: 0;
 }
