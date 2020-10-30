@@ -61,6 +61,7 @@
 .main-controls__select-all-button:hover, .main-controls__select-all-button:focus {
 	cursor: pointer;
 	background-color: var(--hover-background-color);
+	transform: scale(1.2);
 }
 
 .main-controls__select-all-button:focus, .main-controls__create-new-input:focus, .main-controls__create-new-input:active, .main-controls__select-all-button:active {

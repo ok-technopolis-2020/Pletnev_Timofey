@@ -4,6 +4,7 @@
   	--main-text-color: #666666;
 	--action-bar-text-color: #888888;
   	--shadow-color: #e6e6e6;
+  	--border-checked-color: #ebdfdf;
 }
 
 .todo-app__actions-bar {
@@ -50,23 +51,26 @@
   	padding: 2px;
   	cursor: pointer;
   	transition: all 0.2s ease-out;
+  	border: 1px solid var(--background-light-color);
 }
 
-.task-filter__input:not(:disabled):not(:checked) + .task-filter__text:hover {
-  	color: var(--main-text-color);
-  	background-color: var(--hover-background-color);
+.task-filter__input + .task-filter__text{
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
 }
 
-.task-filter__input:focus + .task-filter__text, .task-filter__input:active + .task-filter__text {
-  	color: var(--main-text-color);
+.task-filter__text:hover {
+	cursor: pointer;
 }
 
 .task-filter__input:checked + .task-filter__text {
-  	border: 1px solid #ebdfdf;
+	border: 1px solid var(--border-checked-color);
 }
 
-.task-filter__input:disabled + .task-filter__text {
-  	border: 0;
+.task-filter__input:focus ~ .task-filter__text {
+    background-color: var(--hover-background-color);
+    border-color: var(--main-text-color);
 }
 
 .task-clear-completed {
@@ -86,16 +90,7 @@
 	font-family: Roboto, sans-serif;
 	font-style:	normal;
 	transition: all 0.2s ease-out;
-	border-radius: 8px;
-}
-
-.task-clear-completed-btn:active {
-  	transition: all 0.2s ease-out;
-}
-
-.task-clear-completed-btn:focus {
-	outline-width: 1px;
-	outline-color: var(--main-text-color);
+	border-radius: 5px;
 }
 
 .task-clear-completed-btn:hover {
