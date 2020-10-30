@@ -11,7 +11,7 @@
 	display: flex;
 	flex-direction: row;
 	padding: 0px 10px;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	font-weight: 300;
 	font-size: 14px;
@@ -22,9 +22,62 @@
 	background: var(--background-light-color);
 }
 
+.actions-bar__item {
+	flex-grow: 1;
+}
+
+.task-counter {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.task-filter {
+	display: flex;
+	justify-content: center;
+}
+
+.task-filter__input {
+  	position: absolute;
+  	opacity: 0;
+}
+
+.task-filter__text {
+  	display: inline-flex;
+  	align-items: center;
+  	user-select: none;
+  	border-radius: 5px;
+  	margin: 0 5px;
+  	padding: 2px;
+  	cursor: pointer;
+  	transition: all 0.2s ease-out;
+}
+
+.task-filter__input:not(:disabled):not(:checked) + .task-filter__text:hover {
+  	color: var(--main-text-color);
+  	background-color: var(--hover-background-color);
+}
+
+.task-filter__input:focus + .task-filter__text, .task-filter__input:active + .task-filter__text {
+  	color: var(--main-text-color);
+}
+
+.task-filter__input:checked + .task-filter__text {
+  	border: 1px solid #ebdfdf;
+}
+
+.task-filter__input:disabled + .task-filter__text {
+  	border: 0;
+}
 
 .task-clear-completed {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.task-clear-completed-btn {
 	border: none;
+	height: 25px;
+	padding: 3px;
 	font-size: 14px;
 	font-weight: 300;
 	font-size: 14px;
@@ -36,50 +89,17 @@
 	border-radius: 8px;
 }
 
-.task-clear-completed:active {
+.task-clear-completed-btn:active {
   	transition: all 0.2s ease-out;
 }
 
-.task-clear-completed:focus {
+.task-clear-completed-btn:focus {
 	outline-width: 1px;
 	outline-color: var(--main-text-color);
 }
 
-.task-clear-completed:hover {
+.task-clear-completed-btn:hover {
 	color: var(--main-text-color);
 	cursor: pointer;
 	background-color: var(--hover-background-color);
-}
-
-.task-filter__input {
-  position: absolute;
-  opacity: 0;
-}
-
-.task-filter__text {
-  display: inline-flex;
-  align-items: center;
-  user-select: none;
-  border-radius: 5px;
-  margin: 0 5px;
-  padding: 2px;
-  cursor: pointer;
-  transition: all 0.2s ease-out;
-}
-
-.task-filter__input:not(:disabled):not(:checked) + .task-filter__text:hover {
-  color: var(--main-text-color);
-  background-color: var(--hover-background-color);
-}
-
-.task-filter__input:focus + .task-filter__text, .task-filter__input:active + .task-filter__text {
-  color: var(--main-text-color);
-}
-
-.task-filter__input:checked + .task-filter__text {
-  border: 1px solid #ebdfdf;
-}
-
-.task-filter__input:disabled + .task-filter__text {
-  border: 0;
 }
