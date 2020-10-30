@@ -1,0 +1,118 @@
+:root {
+	--hover-background-color: #fafafa;
+  	--main-light-text-color: #cccccc;
+  	--main-text-color: #666666;
+  	--green-color: #5dc2af;
+  	--shadow-color: #e6e6e6;
+}
+
+ul {
+	list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.todo-app__tasks {
+	min-height: 293px;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.task-item__view {
+	word-break: break-all;
+	align-items: center;
+	padding-left: 10px;
+	min-height: 64px;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-bottom: solid 1px var(--shadow-color);
+	transition: all 0.1s ease-out;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.task-item__delete {
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+	background: none;
+	background-image: url("../asset/close.svg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 75% 75%;
+	border: none;
+	display: none;
+	transition: all 0.2s ease-out;
+}
+
+.task-item__view:hover .task-item__delete {
+	cursor: pointer;
+	display: block;
+}
+
+.task-item__delete:hover, .task-item__delete:focus {
+	transform: scale(1.1);
+}
+
+.task-item__view:hover, .task-item__view:active, .task-item__view:focus, .task-item__text:focus, .task-item__status:focus, .task-item__status:active {
+	outline-width: 1px;
+	outline-color: var(--main-text-color);
+	background: var(--hover-background-color);
+}
+
+.task-item__status {
+	position: absolute;
+	opacity: 0;
+}
+
+.task-item__status + .task-item__text {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+.task-item__text {
+	width: 512px;
+}
+
+.task-item__text:hover {
+	cursor: pointer;
+}
+
+.task-item__status + .task-item__text::before {
+	content: '';
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	flex-shrink: 0;
+	flex-grow: 0;
+	border: 1px solid #adb5bd;
+	border-radius: 20px;
+	margin-right: 15px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 50% 50%;
+}
+
+.task-item__status:checked + .task-item__text::before {
+	border-color: var(--green-color);
+	background-image: url("../asset/completed.svg");
+}
+
+.task-item__status:checked + .task-item__text {
+	text-decoration: line-through;
+	color: var(--main-light-text-color);
+}
+
+.task-item__delete:active {
+  	transition: all 0.2s ease-out;
+}
+
+.task-item__status:focus, .task-item__text:focus, .task-item__delete:focus {
+	outline-width: 1px;
+	outline-color: var(--main-text-color);
+}

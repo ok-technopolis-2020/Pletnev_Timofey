@@ -1,0 +1,85 @@
+:root {
+	--background-light-color: #ffffff;
+	--hover-background-color: #fafafa;
+  	--main-text-color: #666666;
+	--action-bar-text-color: #888888;
+  	--shadow-color: #e6e6e6;
+}
+
+.todo-app__actions-bar {
+	height: 43px;
+	display: flex;
+	flex-direction: row;
+	padding: 0px 10px;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: 300;
+	font-size: 14px;
+	color: var(--action-bar-text-color);
+	border-top: solid 1px var(--shadow-color);
+	position: sticky;
+	bottom: 0;
+	background: var(--background-light-color);
+}
+
+
+.task-clear-completed {
+	border: none;
+	font-size: 14px;
+	font-weight: 300;
+	font-size: 14px;
+	color: var(--action-bar-text-color);
+	background: var(--background-light-color);
+	font-family: Roboto, sans-serif;
+	font-style:	normal;
+	transition: all 0.2s ease-out;
+	border-radius: 8px;
+}
+
+.task-clear-completed:active {
+  	transition: all 0.2s ease-out;
+}
+
+.task-clear-completed:focus {
+	outline-width: 1px;
+	outline-color: var(--main-text-color);
+}
+
+.task-clear-completed:hover {
+	color: var(--main-text-color);
+	cursor: pointer;
+	background-color: var(--hover-background-color);
+}
+
+.task-filter__input {
+  position: absolute;
+  opacity: 0;
+}
+
+.task-filter__text {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  border-radius: 5px;
+  margin: 0 5px;
+  padding: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.task-filter__input:not(:disabled):not(:checked) + .task-filter__text:hover {
+  color: var(--main-text-color);
+  background-color: var(--hover-background-color);
+}
+
+.task-filter__input:focus + .task-filter__text, .task-filter__input:active + .task-filter__text {
+  color: var(--main-text-color);
+}
+
+.task-filter__input:checked + .task-filter__text {
+  border: 1px solid #ebdfdf;
+}
+
+.task-filter__input:disabled + .task-filter__text {
+  border: 0;
+}

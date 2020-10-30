@@ -1,0 +1,79 @@
+:root {
+	--main-background-color: rgb(245,245,245);
+	--background-light-color: #ffffff;
+	--title-color: #cccccc;
+  	--main-text-color: #666666;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: var(--main-background-color);
+}
+
+.todo-app {
+	display: flex;
+	flex-direction: column;
+	color: var(--main-text-color);
+	margin-top: 5%;
+	margin-bottom: 5%;
+	display: flex;
+	align-items: center;
+  	justify-content: center;
+
+    font-family: Roboto, sans-serif;
+	font-style:	normal;
+
+	font-size: 24px;
+	font-weight: 200;
+}
+
+.title {
+    text-transform: lowercase;
+	width: 245px;
+	height: 21px;
+	margin-bottom: 20%;
+	margin-top: 5%;
+	font-weight: 200;
+	font-size: 100px;
+	line-height: 21px;
+
+	color: var(--title-color);
+}
+
+.todo-app__frame {
+	width: 562px;
+	min-height: 402px;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
+	background: var(--background-light-color);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.todo-app__frame:after {
+	content: '';
+	position: absolute;
+	background: var(--background-light-color);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+	height: calc(100% + 4px);
+	z-index: -1;
+	left: 2px;
+	right: 2px;
+}
+
+.todo-app__frame:before {
+	content: '';
+	position: absolute;
+	background: var(--background-light-color);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+	height: calc(100% + 8px);
+	z-index: -2;
+	left: 3px;
+	right: 3px;
+}
