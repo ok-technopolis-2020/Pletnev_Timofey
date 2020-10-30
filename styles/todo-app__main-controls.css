@@ -36,6 +36,8 @@
 .main-controls__create-new {
 	flex: 1;
 	height: 100%;
+	background-color: var(--background-light-color);
+
 }
 
 .main-controls__create-new-input {
@@ -48,7 +50,7 @@
 	border: 0;
 	padding: 0;
 	height: 100%;
-	background: none;
+	background-color: var(--background-light-color);
 }
 
 .main-controls__create-new-input::placeholder {
