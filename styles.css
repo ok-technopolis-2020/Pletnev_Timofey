@@ -30,7 +30,6 @@ ul {
 .todo-app {
 	display: flex;
 	flex-direction: column;
-
 	color: var(--main-text-color);
 	margin-top: 5%;
 	margin-bottom: 5%;
@@ -65,22 +64,31 @@ ul {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-
+	position: relative;
 	background: var(--background-light-color);
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-
 .todo-app__frame:after {
 	content: '';
-	position: relative;
+	position: absolute;
 	background: var(--background-light-color);
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 	width: 558px;
-	height: 5px;
+	height: calc(100% + 4px);
 	z-index: -1;
-	transform: translateY(3px);
 	left: calc((100% - 562px) / 2 + 2px);
+}
+
+.todo-app__frame:before {
+	content: '';
+	position: absolute;
+	background: var(--background-light-color);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+	width: 556px;
+	height: calc(100% + 8px);
+	z-index: -2;
+	left: calc((100% - 562px) / 2 + 3px);
 }
 
 .todo-app__main-controls {
@@ -119,7 +127,6 @@ ul {
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
-
 
 .task-item__delete {
 	width: 30px;
