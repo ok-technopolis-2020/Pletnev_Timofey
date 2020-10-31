@@ -1,0 +1,100 @@
+:root {
+	--background-light-color: #ffffff;
+	--hover-background-color: #fafafa;
+  	--main-text-color: #666666;
+	--action-bar-text-color: #888888;
+  	--shadow-color: #e6e6e6;
+  	--border-checked-color: #ebdfdf;
+}
+
+.todo-app__actions-bar {
+	height: 43px;
+	display: flex;
+	flex-direction: row;
+	padding: 0px 10px;
+	justify-content: space-around;
+	align-items: center;
+	font-weight: 300;
+	font-size: 14px;
+	color: var(--action-bar-text-color);
+	border-top: solid 1px var(--shadow-color);
+	position: sticky;
+	bottom: 0;
+	background: var(--background-light-color);
+}
+
+.actions-bar__item {
+	flex-grow: 1;
+}
+
+.task-counter {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.task-filter {
+	display: flex;
+	justify-content: center;
+}
+
+.task-filter__input {
+  	position: absolute;
+  	opacity: 0;
+}
+
+.task-filter__text {
+  	display: inline-flex;
+  	align-items: center;
+  	user-select: none;
+  	border-radius: 5px;
+  	margin: 0 5px;
+  	padding: 2px;
+  	cursor: pointer;
+  	transition: all 0.2s ease-out;
+  	border: 1px solid var(--background-light-color);
+}
+
+.task-filter__input + .task-filter__text{
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+.task-filter__text:hover {
+	cursor: pointer;
+}
+
+.task-filter__input:checked + .task-filter__text {
+	border: 1px solid var(--border-checked-color);
+}
+
+.task-filter__input:focus ~ .task-filter__text {
+    background-color: var(--hover-background-color);
+    border-color: var(--main-text-color);
+}
+
+.task-clear-completed {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.task-clear-completed-btn {
+	border: none;
+	height: 25px;
+	padding: 3px;
+	font-size: 14px;
+	font-weight: 300;
+	font-size: 14px;
+	color: var(--action-bar-text-color);
+	background: var(--background-light-color);
+	font-family: Roboto, sans-serif;
+	font-style:	normal;
+	transition: all 0.2s ease-out;
+	border-radius: 5px;
+}
+
+.task-clear-completed-btn:hover {
+	color: var(--main-text-color);
+	cursor: pointer;
+	background-color: var(--hover-background-color);
+}
