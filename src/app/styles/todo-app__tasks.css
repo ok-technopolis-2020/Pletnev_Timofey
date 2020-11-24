@@ -92,7 +92,7 @@ ul {
 
 			&:before {
 				border-color: var(--green-color);
-				background-image: url("../asset/completed.svg");
+				background-image: url('../../img/completed.svg');
 			}
 		}
 	}
@@ -117,7 +117,7 @@ ul {
 	width: 30px;
 	height: 30px;
 	margin-right: 10px;
-	background: url("../asset/close.svg") no-repeat center center;
+	background: url('../../img/close.svg') no-repeat center center;
 	background-size: 75% 75%;
 	border: none;
 	display: block;
