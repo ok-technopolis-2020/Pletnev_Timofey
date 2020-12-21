@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>todo-app</title>
+  <link href="./app/styles/styles.css" media="screen"/>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="todo-app">
+    <header class="todo-app__header">
+      <h1 class="title">Todos</h1>
+    </header>
+    <main class="todo-app__frame">
+      <form name="main-controls" class="todo-app__main-controls">
+        <div class="main-controls__select-all">
+          <input
+                  type="button"
+                  autocomplete="off"
+                  name="select-all-button"
+                  class="main-controls__select-all-button"
+                  aria-label="Select all tasks"
+          >
+        </div>
+        <div class="main-controls__create-new">
+          <input
+                  type="text"
+                  name="new-task-input-field"
+                  class="main-controls__create-new-input"
+                  placeholder="What need to be done?"
+                  aria-label="Add new item"
+                  autofocus="autofocus"
+          >
+        </div>
+      </form>
+      <section class="todo-app__tasks">
+        <ul class="todo-app__task-list tasks js-todo-app__task-list"></ul>
+      </section>
+      <footer class="todo-app__actions-bar">
+        <div class="actions-bar__item">
+          <div class="task-counter">
+            <span class="task-counter__text js-task-counter__text">3 items left</span>
+          </div>
+        </div>
+        <div class="actions-bar__item">
+          <div class="task-filter" role="group" aria-label="Filter tasks by status">
+            <div class="task-filter__item">
+              <input
+                      type="radio"
+                      class="task-filter__input js-task-filter__input"
+                      name="filter"
+                      checked="checked"
+                      id="all"
+              >
+              <label class="task-filter__text" for="all" aria-label="Select all tasks">All</label>
+            </div>
+            <div class="task-filter__item">
+              <input
+                      type="radio"
+                      class="task-filter__input js-task-filter__input"
+                      name="filter"
+                      id="activity"
+              >
+              <label class="task-filter__text" for="activity" aria-label="Select activity tasks">Activity</label>
+            </div>
+            <div class="task-filter__item">
+              <input
+                      type="radio"
+                      class="task-filter__input js-task-filter__input"
+                      name="filter"
+                      id="completed"
+              >
+              <label class="task-filter__text" for="completed" aria-label="Select completed tasks">Completed</label>
+            </div>
+          </div>
+        </div>
+        <div class="actions-bar__item">
+          <div class="task-clear-completed">
+            <button class="task-clear-completed-btn js-task-clear-completed-btn">
+              <span class="task-clear-completed-btn__text">Clear completed</span>
+            </button>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

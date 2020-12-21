@@ -1,7 +1,7 @@
-@import "./variables.css";
-@import "./todo-app__main-controls.css";
-@import "./todo-app__tasks.css";
-@import "./todo-app__actions-bar.css";
+@import "variables.css";
+@import "todo-app__main-controls.css";
+@import "todo-app__tasks.css";
+@import "todo-app__actions-bar.css";
 
 * {
 	margin: 0;
