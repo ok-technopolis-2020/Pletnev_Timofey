@@ -1,4 +1,4 @@
-import { Task } from "./task";
+import {Task} from "./task";
 import actionsBar from "./actions-bar";
 
 class TasksViewer {
@@ -14,19 +14,19 @@ class TasksViewer {
 
     constructor() {
         this.#tasks = [];
-        this.#ul = document.getElementById("list");
+        this.#ul = document.querySelector('.js-todo-app__task-list');
     }
 
     addTask(text) {
         const task = new Task(++this.#lastId, text);
         this.#tasks.push(task);
-        if (this.#mode !== TasksViewer.#FILTER_COMPLETED) {
-            this.#renderTask(task);
-        }
+        actionsBar.counterIncrement();
+        this.#renderTask(task);
     }
 
     selectAll() {
         let i = 0;
+        actionsBar.counterClear();
         while (i < this.#tasks.length) {
             this.#tasks[i].setCompleted = true;
             this.#tasks[i].makeCompleted();
@@ -43,28 +43,37 @@ class TasksViewer {
             } else {
                 if (this.#tasks[i].isCompleted) {
                     this.#tasks.splice(i, 1);
-                    actionsBar.counterPlus();
-                } else i++;
+                } else {
+                    i++;
+                }
             }
         }
         this.renderTasks();
     }
 
     #renderTask(task) {
-        this.#ul.append(task.item);
+        if (this.#mode === TasksViewer.#FILTER_ALL
+            || (this.#mode === TasksViewer.#FILTER_COMPLETED && task.isCompleted)
+            || (this.#mode === TasksViewer.#FILTER_ACTIVITY && !task.isCompleted)
+        ) {
+            this.#ul.append(task.item);
+        }
     }
 
     renderTasks() {
         this.#ul.innerHTML = "";
         switch (this.#mode) {
-            case 0: this.renderAll();
-                    break;
-            case 1: this.renderActivity();
-                    break;
-            case 2: this.renderCompleted();
-                    break;
+            case 0:
+                this.renderAll();
+                break;
+            case 1:
+                this.renderActivity();
+                break;
+            case 2:
+                this.renderCompleted();
+                break;
             default:
-                    console.log("ERROR MODE NUMBER");
+                console.log("ERROR MODE NUMBER");
         }
     }
 
@@ -85,7 +94,7 @@ class TasksViewer {
         this.renderAll();
         this.#mode = TasksViewer.#FILTER_ACTIVITY;
         let i = 0;
-        let list = this.#ul.querySelectorAll('.task-item');
+        let list = this.#ul.querySelectorAll('.js-task-item');
         while (i < this.#tasks.length) {
             if (this.#tasks[i].isRemoved) {
                 this.#tasks.splice(i, 1);
@@ -102,7 +111,7 @@ class TasksViewer {
         this.renderAll();
         this.#mode = TasksViewer.#FILTER_COMPLETED;
         let i = 0;
-        let list = this.#ul.querySelectorAll('.task-item');
+        let list = this.#ul.querySelectorAll('.js-task-item');
         while (i < this.#tasks.length) {
             if (!this.#tasks[i].isCompleted) {
                 list[i].outerHTML = "";

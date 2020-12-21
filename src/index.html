@@ -35,12 +35,12 @@
         </div>
       </form>
       <section class="todo-app__tasks">
-        <ul class="todo-app__task-list tasks" id="list"></ul>
+        <ul class="todo-app__task-list tasks js-todo-app__task-list"></ul>
       </section>
       <footer class="todo-app__actions-bar">
         <div class="actions-bar__item">
           <div class="task-counter">
-            <span class="task-counter__text">3 items left</span>
+            <span class="task-counter__text js-task-counter__text">3 items left</span>
           </div>
         </div>
         <div class="actions-bar__item">
@@ -48,7 +48,7 @@
             <div class="task-filter__item">
               <input
                       type="radio"
-                      class="task-filter__input"
+                      class="task-filter__input js-task-filter__input"
                       name="filter"
                       checked="checked"
                       id="all"
@@ -58,7 +58,7 @@
             <div class="task-filter__item">
               <input
                       type="radio"
-                      class="task-filter__input"
+                      class="task-filter__input js-task-filter__input"
                       name="filter"
                       id="activity"
               >
@@ -67,7 +67,7 @@
             <div class="task-filter__item">
               <input
                       type="radio"
-                      class="task-filter__input"
+                      class="task-filter__input js-task-filter__input"
                       name="filter"
                       id="completed"
               >
@@ -77,7 +77,7 @@
         </div>
         <div class="actions-bar__item">
           <div class="task-clear-completed">
-            <button class="task-clear-completed-btn">
+            <button class="task-clear-completed-btn js-task-clear-completed-btn">
               <span class="task-clear-completed-btn__text">Clear completed</span>
             </button>
           </div>
