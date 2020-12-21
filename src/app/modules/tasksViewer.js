@@ -28,7 +28,6 @@ class TasksViewer {
         let i = 0;
         actionsBar.counterClear();
         while (i < this.#tasks.length) {
-            this.#tasks[i].setCompleted = true;
             this.#tasks[i].makeCompleted();
             i++;
         }
